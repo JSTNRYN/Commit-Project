@@ -43,7 +43,11 @@ public class AccountsLogic
             Role = role
         });
     }
-    
+
+    public static bool LoggedIn()
+    {
+        return CurrentAccount != null;
+    }
 
     public bool CheckIfAccountExists(string email)
     {

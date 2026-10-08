@@ -30,10 +30,9 @@ static class UserLogin
         if (acc != null)
         {
             Console.WriteLine($"Welcome back {acc.FirstName} {acc.LastName}");
-            Console.WriteLine("Your email address is " + acc.Email);
-
-            //Write some code to go back to the menu
-            //Menu.Start();
+            Console.WriteLine($"Your email address is {acc.Email}\nPress enter to return to the main menu");
+            Console.Read();
+            Start();
         }
         else
         {
