@@ -1,6 +1,9 @@
 ﻿
 
 //This class is not static so later on we can use inheritance and interfaces
+
+using System.Text.RegularExpressions;
+
 public class AccountsLogic
 {
 
@@ -18,15 +21,51 @@ public class AccountsLogic
 
     public AccountModel CheckLogin(string email, string password)
     {
-
-
         AccountModel acc = _access.GetByEmail(email);
-        if (acc != null && acc.Password == password)
+
+        if (acc != null && BCrypt.Net.BCrypt.Verify(password, acc.Password))
         {
             CurrentAccount = acc;
             return acc;
         }
+
         return null;
+    }
+
+    public void CheckSignUp(string firstname, string lastname, string email, string phone, string password, string role)
+    {
+        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
+        _access.Write(new AccountModel
+        {
+            Email = email,
+            Password = hashedPassword,
+            FirstName = firstname,
+            LastName = lastname,
+            Phone = phone,
+            Role = role
+        });
+    }
+
+    public static bool LoggedIn()
+    {
+        return CurrentAccount != null;
+    }
+
+    public bool CheckIfAccountExists(string email)
+    {
+        AccountModel acc = _access.GetByEmail(email);
+        return acc != null;
+    }
+
+    public static bool ValidatePassword(string password)
+    {
+        if (string.IsNullOrEmpty(password))
+        {
+            return false;
+        }
+        string pattern = @"^(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':""\\|,.<>/?]).{6,}$";
+        return Regex.IsMatch(password, pattern);
     }
 }
 

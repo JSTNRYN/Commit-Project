@@ -2,21 +2,25 @@
 {
 
     public Int64 Id { get; set; }
-    public string EmailAddress { get; set; }
-
+    public string Email { get; set; }
     public string Password { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Phone { get; set; }
+    public string Role { get; set; }
+    
+    public AccountModel() { }
 
-    public string FullName { get; set; }
-
-    public AccountModel(Int64 id, string email, string password, string fullname)
+    public AccountModel(Int64 id, string email, string password, string firstname, string lastname, string phone, string role)
     {
         Id = id;
-        EmailAddress = email;
+        Email = email;
         Password = password;
-        FullName = fullname;
+        FirstName = firstname;
+        LastName = lastname;
+        Phone = phone;
+        Role = role;
     }
-
-
 }
 
 

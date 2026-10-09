@@ -11,7 +11,7 @@ public class AccountsAccess
 
     public void Write(AccountModel account)
     {
-        string sql = $"INSERT INTO {Table} (email, password, fullname) VALUES (@EmailAddress, @Password, @FullName)";
+        string sql = $"INSERT INTO {Table} (email, password, firstname, lastname, phone, role) VALUES (@Email, @Password, @FirstName, @LastName, @Phone, @Role)";
         _connection.Execute(sql, account);
     }
 
@@ -23,7 +23,7 @@ public class AccountsAccess
 
     public void Update(AccountModel account)
     {
-        string sql = $"UPDATE {Table} SET email = @EmailAddress, password = @Password, fullname = @FullName WHERE id = @Id";
+        string sql = $"UPDATE {Table} SET email = @Email, password = @Password, firstname = @FirstName WHERE id = @Id";
         _connection.Execute(sql, account);
     }
 
