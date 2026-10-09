@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0077a6d-1991-454d-97bf-604d1a4c18cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/dataSources/7bcc8b6d-41de-4509-91c1-7b446952fac8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/dataSources/data_sources_history.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/AccountsLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/AccountsLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSources/project.db" beforeDir="false" afterPath="$PROJECT_DIR$/DataSources/project.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Presentation/UserSignUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Presentation/UserSignUp.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +53,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "14-presentation-layer-add-password-validations",
+    "git-widget-placeholder": "16-presentation-layer-Improve-the-presentation-layer",
     "last_opened_file_path": "/home/hurbie48/Documents/GitHub/Commit-Project",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.lookFeel"

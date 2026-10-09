@@ -1,55 +1,113 @@
+using System;
+using System.Text;
+
 static class UserSignUp
 {
-    static private AccountsLogic accountsLogic = new AccountsLogic();
-
+    private static AccountsLogic accountsLogic = new AccountsLogic();
 
     public static void Start()
     {
         Console.Clear();
-        Console.WriteLine("Welcome to the signup page");
-        Console.WriteLine("Please enter your first name");
-        string firstName = Console.ReadLine();
-        Console.WriteLine("Please enter your last name");
-        string lastName = Console.ReadLine();
-        Console.WriteLine("Please enter your email");
-        string email = Console.ReadLine();
-        Console.WriteLine("Please enter your phone number");
-        string phone = Console.ReadLine();
+        Console.WriteLine("Account Registration\n");
+
+        string firstName = PromptInput("First name");
+        string lastName = PromptInput("Last name");
+        string email = PromptInput("Email");
+        string phone = PromptInput("Phone number");
+
         string password = AskForPassword();
+
         while (!AccountsLogic.ValidatePassword(password))
         {
-            Console.WriteLine("Your password does not match the criteria\nPress enter to try again!");
+            ShowError("Password must be at least 6 characters with 1 number and 1 special character.");
+            Console.WriteLine("Press Enter to try again.");
+            Console.ReadLine();
+
+            Console.Clear();
+            Console.WriteLine("Account Registration\n");
+            DisplayValue("First name", firstName);
+            DisplayValue("Last name", lastName);
+            DisplayValue("Email", email);
+            DisplayValue("Phone number", phone);
+
             password = AskForPassword();
         }
-        
+
         if (accountsLogic.CheckIfAccountExists(email))
         {
-            Console.WriteLine("Sorry, there is already an account with that email!\nPress enter to try again.");
-            Console.Read();
+            ShowError("An account with this email already exists.");
+            Console.WriteLine("Press Enter to restart.");
+            Console.ReadLine();
             Start();
+            return;
         }
 
         accountsLogic.CheckSignUp(firstName, lastName, email, phone, password, "Customer");
+
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\nAccount created successfully!");
+        Console.ResetColor();
+
+        Console.WriteLine("Press Enter to return to the main menu");
+        Console.ReadLine();
+        Menu.Start();
     }
+
+    private static string PromptInput(string label)
+    {
+        Console.Write($"{label}: ");
+        return Console.ReadLine()?.Trim() ?? string.Empty;
+    }
+
+    private static void DisplayValue(string label, string value)
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.WriteLine($"{label}: {value}");
+        Console.ResetColor();
+    }
+
     public static string AskForPassword()
     {
-        Console.WriteLine("Please enter your password:");
-        var pass = new System.Text.StringBuilder();
-        for (ConsoleKeyInfo k; (k = Console.ReadKey(true)).Key != ConsoleKey.Enter;)
+        Console.Write("Password ");
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.Write("(min 6 chars, 1 number, 1 special character)");
+        Console.ResetColor();
+        Console.Write(": ");
+
+        StringBuilder pass = new StringBuilder();
+
+        while (true)
         {
-            if (k.Key == ConsoleKey.Backspace && pass.Length > 0)
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+            if (keyInfo.Key == ConsoleKey.Enter)
             {
-                pass.Remove(pass.Length - 1, 1);
-                Console.Write("\b \b");
+                break;
             }
-            else if (!char.IsControl(k.KeyChar))
+
+            if (keyInfo.Key == ConsoleKey.Backspace)
             {
-                pass.Append(k.KeyChar);
+                if (pass.Length > 0)
+                {
+                    pass.Remove(pass.Length - 1, 1);
+                    Console.Write("\b \b");
+                }
+            }
+            else if (!char.IsControl(keyInfo.KeyChar))
+            {
+                pass.Append(keyInfo.KeyChar);
                 Console.Write("*");
             }
         }
+
         Console.WriteLine();
-        string password = pass.ToString();
-        return password;
+        return pass.ToString();
+    }
+
+    private static void ShowError(string message)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine($"\n{message}");
+        Console.ResetColor();
     }
 }
