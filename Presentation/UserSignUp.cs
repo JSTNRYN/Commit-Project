@@ -15,6 +15,24 @@ static class UserSignUp
         string email = Console.ReadLine();
         Console.WriteLine("Please enter your phone number");
         string phone = Console.ReadLine();
+        string password = AskForPassword();
+        while (!AccountsLogic.ValidatePassword(password))
+        {
+            Console.WriteLine("Your password does not match the criteria\nPress enter to try again!");
+            password = AskForPassword();
+        }
+        
+        if (accountsLogic.CheckIfAccountExists(email))
+        {
+            Console.WriteLine("Sorry, there is already an account with that email!\nPress enter to try again.");
+            Console.Read();
+            Start();
+        }
+
+        accountsLogic.CheckSignUp(firstName, lastName, email, phone, password, "Customer");
+    }
+    public static string AskForPassword()
+    {
         Console.WriteLine("Please enter your password:");
         var pass = new System.Text.StringBuilder();
         for (ConsoleKeyInfo k; (k = Console.ReadKey(true)).Key != ConsoleKey.Enter;)
@@ -32,13 +50,6 @@ static class UserSignUp
         }
         Console.WriteLine();
         string password = pass.ToString();
-        if (accountsLogic.CheckIfAccountExists(email))
-        {
-            Console.WriteLine("Sorry, there is already an account with that email!\nPress enter to try again.");
-            Console.Read();
-            Start();
-        }
-
-        accountsLogic.CheckSignUp(firstName, lastName, email, phone, password, "Customer");
+        return password;
     }
 }

@@ -1,6 +1,9 @@
 ﻿
 
 //This class is not static so later on we can use inheritance and interfaces
+
+using System.Text.RegularExpressions;
+
 public class AccountsLogic
 {
 
@@ -53,6 +56,16 @@ public class AccountsLogic
     {
         AccountModel acc = _access.GetByEmail(email);
         return acc != null;
+    }
+
+    public static bool ValidatePassword(string password)
+    {
+        if (string.IsNullOrEmpty(password))
+        {
+            return false;
+        }
+        string pattern = @"^(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':""\\|,.<>/?]).{6,}$";
+        return Regex.IsMatch(password, pattern);
     }
 }
 
