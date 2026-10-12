@@ -11,11 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0077a6d-1991-454d-97bf-604d1a4c18cf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/dataSources/data_sources_history.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Commit-Project.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataSources/project.db" beforeDir="false" afterPath="$PROJECT_DIR$/DataSources/project.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Presentation/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Presentation/Menu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/AccountsLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/AccountsLogic.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +59,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "21-presentation-layer-show-that-the-user-is-logged-in-on-the-main-menu",
+    "git-widget-placeholder": "23-logic-layer-add-e-mail-validation-to-sign-up",
     "last_opened_file_path": "/home/hurbie48/Documents/GitHub/Commit-Project",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",

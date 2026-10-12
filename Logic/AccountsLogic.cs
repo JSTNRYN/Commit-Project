@@ -67,6 +67,16 @@ public class AccountsLogic
         string pattern = @"^(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':""\\|,.<>/?]).{6,}$";
         return Regex.IsMatch(password, pattern);
     }
+    
+    public static bool ValidateEmail(string email)
+    {
+        if (string.IsNullOrEmpty(email))
+        {
+            return false;
+        }
+        string pattern = @"^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$";
+        return Regex.IsMatch(email, pattern);
+    }
 }
 
 
