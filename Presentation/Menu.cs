@@ -7,6 +7,18 @@ static class Menu
     static public void Start()
     {
         Console.Clear();
+        if (AccountsLogic.LoggedIn())
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"You are currently logged in as: {AccountsLogic.CurrentAccount.FirstName} {AccountsLogic.CurrentAccount.LastName}");
+            Console.ResetColor();
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"You are currently not logged in.");
+            Console.ResetColor();
+        }
         Console.WriteLine("Enter 1 to login");
         Console.WriteLine("Enter 2 to sign up");
         Console.WriteLine("Enter 3 to do something else in the future");
