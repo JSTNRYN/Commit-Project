@@ -7,6 +7,10 @@ static class Menu
     static public void Start()
     {
         Console.Clear();
+        if (AccountsLogic.LoggedIn())
+        {
+            Console.WriteLine($"You are currently logged in as: {AccountsLogic.CurrentAccount.FirstName} {AccountsLogic.CurrentAccount.LastName}");
+        }
         Console.WriteLine("Enter 1 to login");
         Console.WriteLine("Enter 2 to sign up");
         Console.WriteLine("Enter 3 to do something else in the future");

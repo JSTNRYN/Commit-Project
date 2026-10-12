@@ -17,13 +17,6 @@ static class UserLogin
 
         if (acc != null)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"\nWelcome back, {acc.FirstName} {acc.LastName}!");
-            Console.ResetColor();
-
-            Console.WriteLine("\nPress Enter to return to the main menu...");
-            Console.ReadLine();
-            
             Menu.Start();
         }
         else
